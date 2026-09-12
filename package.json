@@ -2,13 +2,11 @@
   "name": "portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Thevar Essakki Pandian - Portfolio",
-  "main": "server.js",
+  "description": "Portfolio of Thevar Essakki Pandian",
   "scripts": {
+    "dev": "node server.js",
     "start": "node server.js",
-    "build": "echo 'No build required'"
+    "build": "echo 'Build complete'"
   },
-  "keywords": [],
-  "author": "Thevar Essakki Pandian",
-  "license": "ISC"
+  "dependencies": {}
 }
