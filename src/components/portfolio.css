@@ -534,7 +534,17 @@
                 text-transform: uppercase;
                 color: #fff;
                 align-items: center;
-                gap: 10px
+                gap: 10px;
+                cursor: pointer;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+                pointer-events: auto;
+                position: relative;
+                z-index: 510;
+            }
+
+            .nav-menu-btn * {
+                pointer-events: none;
             }
 
             .nav-menu-btn .icon {
@@ -3703,3 +3713,420 @@
 
 .portfolio-site { min-height: 100vh; }
 .portfolio-site button { font: inherit; }
+
+
+/* ==========================================================================
+   RESPONSIVE OPTIMIZATIONS (1280px–1536px IMMUTABLE REFERENCE PRESERVED)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. LARGE DESKTOP & 16-INCH SCREENS (1600px–2199px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1600px) {
+    .nav {
+        max-width: var(--maxw);
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 100%;
+        padding-inline: var(--pad-x);
+    }
+
+    .footer {
+        max-width: var(--maxw);
+        margin: 0 auto;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. ULTRAWIDE MONITORS (2200px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 2200px) {
+    :root {
+        --maxw: 1680px;
+    }
+
+    .nav {
+        max-width: var(--maxw);
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 100%;
+        padding-inline: var(--pad-x);
+    }
+
+    .footer {
+        max-width: var(--maxw);
+        margin: 0 auto;
+    }
+
+    .hero-container {
+        max-width: var(--maxw);
+    }
+
+    .hero-bg-visual {
+        width: min(24vw, 440px);
+        right: max(var(--pad-x), calc((100vw - var(--maxw)) / 2 + var(--pad-x)));
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. TABLET DEVICES (769px–1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .certs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .work-card {
+        flex: 0 0 min(380px, 46vw);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. MOBILE DEVICES (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Strict viewport containment */
+    html, body {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* Navbar & Mobile Navigation */
+    .nav {
+        padding: 16px var(--pad-x);
+        z-index: 500;
+        pointer-events: auto;
+    }
+
+    .nav-menu-btn {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer !important;
+        padding: 8px 0;
+        min-height: 44px;
+        min-width: 44px;
+        justify-content: flex-end;
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 510 !important;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-menu-btn * {
+        pointer-events: none;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        inset: 0;
+        background: var(--bg);
+        z-index: 490;
+        display: flex;
+        flex-direction: column;
+        padding: var(--pad-x);
+        padding-top: calc(var(--nav-h) + 24px);
+        padding-bottom: 40px;
+        transform: translateY(-100%);
+        transition: transform .45s var(--ease);
+        visibility: hidden;
+        pointer-events: none;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: 100svh;
+    }
+
+    .mobile-menu.open {
+        transform: translateY(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    .mobile-menu a {
+        font-size: clamp(28px, 7.5vw, 48px);
+        padding: 10px 0;
+        pointer-events: auto !important;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+        overflow: hidden;
+        min-height: auto;
+        padding-top: calc(var(--nav-h) + 16px);
+        padding-bottom: 40px;
+    }
+
+    .hero-bg-visual {
+        pointer-events: none;
+        opacity: 0.22;
+    }
+
+    .hero-scroll-edge {
+        display: none;
+    }
+
+    .hero-eyebrow {
+        gap: 10px;
+    }
+
+    .hero-eyebrow .eyebrow-text {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+        font-size: clamp(42px, 12vw, 64px);
+        line-height: 0.94;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .hero-description {
+        font-size: 14.5px;
+        line-height: 1.6;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    /* Selected Work Carousel on Mobile */
+    .work-header-centered {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .work-header-text {
+        order: 1;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    .work-nav-arrow {
+        order: 2;
+        width: 48px;
+        height: 48px;
+    }
+
+    .work-card {
+        flex: 0 0 min(340px, calc(100vw - 48px));
+        min-height: 380px;
+        padding: 24px 20px;
+        border-radius: 24px;
+    }
+
+    .work-card-title {
+        font-size: 24px;
+    }
+
+    /* About Section */
+    .about-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .about-meta-row {
+        grid-template-columns: 100px 1fr;
+        padding: 14px 0;
+        gap: 12px;
+    }
+
+    .about-portrait {
+        max-height: 440px;
+        aspect-ratio: 4/5;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* Certifications & Lightbox */
+    .certs-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .certs-stats-strip {
+        width: 100%;
+        gap: 12px;
+        padding: 10px 16px;
+        justify-content: space-around;
+    }
+
+    .certs-stat-val {
+        font-size: 17px;
+    }
+
+    .certs-stat-lbl {
+        font-size: 9px;
+    }
+
+    .cert-filter-btn {
+        padding: 7px 14px;
+        font-size: 10px;
+    }
+
+    .cert-lightbox-content {
+        width: 94vw;
+        max-height: 88vh;
+        border-radius: 14px;
+    }
+
+    .cert-lightbox-media {
+        max-height: 38vh;
+        padding: 14px;
+    }
+
+    .cert-lightbox-media img {
+        max-height: 34vh;
+    }
+
+    .cert-lightbox-details {
+        padding: 18px;
+        gap: 10px;
+    }
+
+    .cert-lightbox-title {
+        font-size: 20px;
+    }
+
+    .cert-lightbox-desc {
+        font-size: 13.5px;
+    }
+
+    /* Contact Links */
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-link {
+        padding: 24px 18px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .contact-link .value {
+        font-size: clamp(14px, 4.2vw, 19px);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. SMALL MOBILE PHONES (<= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    :root {
+        --pad-x: 18px;
+    }
+
+    .hero-title {
+        font-size: clamp(36px, 11vw, 48px);
+        line-height: 0.96;
+    }
+
+    .hero-title .serif-italic {
+        display: inline;
+    }
+
+    .hero-badge-box {
+        font-size: 9.5px;
+        letter-spacing: 0.12em;
+    }
+
+    .hero-cta-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-left: 0;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+
+    .work-card {
+        flex: 0 0 calc(100vw - 36px);
+        padding: 20px 16px;
+    }
+
+    .work-card-tags {
+        gap: 6px;
+    }
+
+    .work-tag {
+        font-size: 9px;
+        padding: 4px 8px;
+    }
+
+    .dsa-topics {
+        grid-template-columns: 1fr;
+    }
+
+    .dsa-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .dsa-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer {
+        padding: 32px var(--pad-x);
+        gap: 20px;
+    }
+
+    .footer-roles {
+        gap: 8px 12px;
+        font-size: 10px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. EXTRA SMALL MOBILE PHONES (<= 360px, e.g. iPhone SE 1st gen, Galaxy Fold)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+    :root {
+        --pad-x: 14px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    .hero-eyebrow .eyebrow-line {
+        display: none;
+    }
+
+    .work-main-title {
+        font-size: 32px;
+    }
+
+    .about-meta-row {
+        grid-template-columns: 80px 1fr;
+        font-size: 12.5px;
+    }
+
+    .about-meta-row .v {
+        font-size: 12.5px;
+    }
+
+    .certs-title {
+        font-size: 30px;
+    }
+
+    .certs-stat-item {
+        gap: 0;
+    }
+
+    .certs-stat-val {
+        font-size: 14px;
+    }
+}
